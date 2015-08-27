@@ -2,18 +2,52 @@ $(document).ready(function(){
 	var i = 0;
 	var j = 0;
 	var k = 0;
+	var curId = 0;
+
+	function flip(id){
+		var sid =  Number(id.substr(2));
+		curId = sid;
+		$('#main1, #main2').animate({
+			scrollTop: (mH*sid)
+		});
+	}
+
+
 	$(window).mousewheel(function(event, delta){
-		if (delta > 0){
-			alert('down');
+		event.preventDefault();
+
+		if (delta > 1){
+			if(curId > 0){
+				$('.peice').text('');
+				$('.peice').removeClass('activePeice');
+				$('#pi'+(curId-1)).addClass('activePeice');
+				var that = $('#pi'+(curId-1)); 
+				flip(that.attr('id'));
+				setTimeout(function(){
+					that.text(txt[that.attr('id')]);
+				}, 150);
+				flip('pi'+(curId-1));
+			}
 		} else if (delta < 0){
-			alert('up');
+			if(curId < 4){
+				$('.peice').text('');
+				$('.peice').removeClass('activePeice');
+				$('#pi'+(curId+1)).addClass('activePeice');
+				var that = $('#pi'+(curId+1)); 
+				flip(that.attr('id'));
+				setTimeout(function(){
+					that.text(txt[that.attr('id')]);
+				}, 150);
+				flip('pi'+(curId+1));
+			}
 		}
 	});
 	setInterval(function(){
 		if (i>=1000){i=0;}
 		i += 0.7;
-		$(".bg1").css(
+		$(".bg1").css({
 			'backgroundPosition': '0px '+i+'px'
+		
 		});
 
 	}, 50);
@@ -48,13 +82,6 @@ $(document).ready(function(){
 		'pi4':"Performnace"		
 	}
 
-	function flip(id){
-		var sid =  id.substr(2);
-		
-		$('#main1, #main2').animate({
-			scrollTop: (mH*sid)
-		});
-	}
 
 	$('.peice').click(function(){
 		if($(this).hasClass('activePeice') ===  false){
