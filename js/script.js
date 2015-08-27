@@ -12,7 +12,7 @@ $(document).ready(function(){
 	setInterval(function(){
 		if (i>=1000){i=0;}
 		i += 0.7;
-		$(".bg1").css({
+		$(".bg1").css(
 			'backgroundPosition': '0px '+i+'px'
 		});
 
