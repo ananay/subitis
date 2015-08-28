@@ -16,7 +16,7 @@ $(document).ready(function(){
 	function flip(id){
 		var sid =  Number(id.substr(2));
 		curId = sid;
-		$('#main1, #main2').animate({
+		$('#main1, #main2').stop().animate({
 			scrollTop: (mH*sid)
 		});
 	}
