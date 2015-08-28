@@ -1,4 +1,13 @@
 $(document).ready(function(){
+	$(".first").animate({
+		'opacity':1,
+		'paddingTop':'50px'
+	});
+	$(".first2").animate({
+		'opacity':1,
+		'top':'5%'
+	});
+	$("body").niceScroll();
 	var i = 0;
 	var j = 0;
 	var k = 0;
@@ -12,34 +21,19 @@ $(document).ready(function(){
 		});
 	}
 
-
+	var curPage = 0;
 	$(window).mousewheel(function(event, delta){
-		event.preventDefault();
-
-		if (delta > 1){
-			if(curId > 0){
-				$('.peice').text('');
-				$('.peice').removeClass('activePeice');
-				$('#pi'+(curId-1)).addClass('activePeice');
-				var that = $('#pi'+(curId-1)); 
-				flip(that.attr('id'));
-				setTimeout(function(){
-					that.text(txt[that.attr('id')]);
-				}, 150);
-				flip('pi'+(curId-1));
-			}
-		} else if (delta < 0){
-			if(curId < 4){
-				$('.peice').text('');
-				$('.peice').removeClass('activePeice');
-				$('#pi'+(curId+1)).addClass('activePeice');
-				var that = $('#pi'+(curId+1)); 
-				flip(that.attr('id'));
-				setTimeout(function(){
-					that.text(txt[that.attr('id')]);
-				}, 150);
-				flip('pi'+(curId+1));
-			}
+		console.log(event);
+		if (delta < 0){
+			// curPage-=1;
+			// alert('up');
+			console.log(curPage);
+			flip("pi"+curPage);
+		} else if(delta > 0) {
+			// alert('down');
+			curPage+=1;
+			console.log(curPage);
+			flip("pi"+curPage);
 		}
 	});
 	setInterval(function(){

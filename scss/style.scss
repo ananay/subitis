@@ -246,3 +246,27 @@ body{
 	background-color: #B3B33B;
 }
 /*</Rohan's Code>*/
+.p1 h1{
+	color:#fff;
+	text-align: center;
+	font-family: $font3;
+}
+.first{
+	opacity: 0;
+	position: absolute;
+	top:70%;
+	margin-top:0px;
+	left:50%;
+	transform:translate(-50%,-50%);
+	font-size:36pt;
+}
+#main .p1 h1{
+	position: absolute;
+	top:100%;
+}
+.first2{
+	position:relative;
+	top:100px;
+	opacity: 0;
+	font-size: 36pt;
+}
