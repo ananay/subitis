@@ -13,6 +13,15 @@ $(document).ready(function(){
 	var k = 0;
 	var curId = 0;
 
+	window.menu = {
+		open:function(){
+			$('nav').css('left','0%');
+		},
+		close:function(){
+			$('nav').css('left','-100%');
+		}
+	}
+
 	function flip(id){
 		var sid =  Number(id.substr(2));
 		curId = sid;

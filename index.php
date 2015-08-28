@@ -41,6 +41,7 @@
 					<div class="page p5"></div>
 				</div>
 			</div>
+
 			<div id="shadow2">
 				<div id="main2">
 					<div class="page p1"><h1 class="first2">Your critical care expert.</h1></div>
@@ -60,6 +61,12 @@
 			<div class="peice" id='pi4'></div>
 		</div>
 	</div>
+
+		<nav>
+			<div id="closeMenu"></div>			
+		</nav>
+
+
 
 </body>
 </html>
