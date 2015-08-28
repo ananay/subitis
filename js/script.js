@@ -23,18 +23,16 @@ $(document).ready(function(){
 
 	var curPage = 0;
 	$(window).mousewheel(function(event, delta){
-		console.log(event);
+
+
 		if (delta < 0){
-			// curPage-=1;
-			// alert('up');
-			console.log(curPage);
-			flip("pi"+curPage);
+			// alert('Up');
+			$('#pi' + (curId-1)).trigger( "click" );
 		} else if(delta > 0) {
 			// alert('down');
-			curPage+=1;
-			console.log(curPage);
-			flip("pi"+curPage);
+			$('#pi'+(curId+	1)).trigger( "click" );
 		}
+
 	});
 	setInterval(function(){
 		if (i>=1000){i=0;}
@@ -80,13 +78,12 @@ $(document).ready(function(){
 	$('.peice').click(function(){
 		if($(this).hasClass('activePeice') ===  false){
 			$('.peice').text('');
-			$('.peice').not(this).removeClass('activePeice');
+			$('.peice').removeClass('activePeice');
 			$(this).addClass('activePeice');
 			var that = $(this); 
 			flip(that.attr('id'));
-			setTimeout(function(){
-				that.text(txt[that.attr('id')]);
-			}, 150);
+			that.text(txt[that.attr('id')]);
+
 		}
 	});
 
